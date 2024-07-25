@@ -17,6 +17,10 @@
             define('OILPRICE', 10);
             define('SPARKPRICE', 4);
 
+            # To use a constant we don't need to use $ as with variables. 
+            // echo TIREPRICE;
+            // echo phpinfo(); # methods, functions and more useful stuff of PHP
+
             echo '<p>Order processed at ';
             echo date("H:i, jS F Y");
             echo "</p>";
@@ -33,11 +37,14 @@
             $totalqty = 0;
             $totalqty = $tireqty + $oilqty + $sparkqty;
             echo "<p>Items ordered: ".$totalqty."<br />";
-            $totalamount = $totalqty;
+            $totalamount = 0.00;
 
-            # To use a constant we don't need to use $ as with variables. 
-            // echo TIREPRICE;
-            // echo phpinfo(); # methods, functions and more useful stuff of PHP
+            $totalamount = $tireqty * TIREPRICE
+                         + $oilqty * OILPRICE
+                         + $sparkqty * SPARKPRICE;
+
+            echo "Subtotal: $".number_format($totalamount, 2)."<br />";
+            
             
         ?>
     </body>
