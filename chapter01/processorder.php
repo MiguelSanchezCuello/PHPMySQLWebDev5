@@ -49,6 +49,12 @@
             $totalamount = $totalamount * (1 + $taxrate);
             echo "Total including tax: $".number_format($totalamount, 2)."</p>";
             
+            # Testing the gettype() function
+            echo "<p>Testing getttype() and settype()</p>";
+            $a = 56;
+            echo "$a is ".gettype($a).'<br />';
+            settype($a, 'float');
+            echo "$a is ".gettype($a).'<br />';
         ?>
     </body>
 </html>
