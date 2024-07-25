@@ -62,6 +62,18 @@
                 if ($sparkqty > 0)
                     echo htmlspecialchars($sparkqty).' spark plugs<br />';
 
+                # Calculating discounts using elseif
+                if($tireqty < 10){
+                    $discount = 0;
+                } elseif (($tireqty >= 10) && ($tireqty <= 49)) {
+                    $discount = 5;
+                } elseif (($tireqty >= 50) && ($tireqty <= 99)) {
+                    $discount = 10;
+                } elseif ($tireqty >= 100) {
+                    $discount = 15;
+                }
+
+                
                 echo '<p>Order processed at ';
                 echo date("H:i, jS F Y");
                 echo "</p>";
