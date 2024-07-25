@@ -11,6 +11,7 @@
             $tireqty = $_POST['tireqty'];
             $oilqty = $_POST['oilqty'];
             $sparkqty = $_POST['sparkqty'];
+            $find = $_POST['find'];
 
             # Definining the price of each item using constants.
             define('TIREPRICE', 100);
@@ -21,46 +22,78 @@
             // echo TIREPRICE;
             // echo phpinfo(); # methods, functions and more useful stuff of PHP
 
-            echo '<p>Order processed at ';
-            echo date("H:i, jS F Y");
-            echo "</p>";
+            
+            
 
             # This can also be written in a single line
             # using the concatenator operator (.)
             # echo "<p>Order processed at ".date('H:i, jS F Y')."</p>";
 
-            echo '<p>Your order is as follow: </p>';
-            echo htmlspecialchars($tireqty).' tires<br />';
-            echo htmlspecialchars($oilqty).' bottles of oil<br />';
-            echo htmlspecialchars($sparkqty).' spark plugs<br />';
+            
+            
 
             $totalqty = 0;
             $totalqty = $tireqty + $oilqty + $sparkqty;
-            echo "<p>Items ordered: ".$totalqty."<br />";
-            $totalamount = 0.00;
+            
 
-            $totalamount = $tireqty * TIREPRICE
-                         + $oilqty * OILPRICE
-                         + $sparkqty * SPARKPRICE;
+            if ($totalqty == 0){
+                echo '<p style="color:red">';
+                echo "You did not orderanything on the previous page!<br />";
+                echo '</p>';
+            } else {
+                echo "<p>Items ordered: ".$totalqty."<br />";
+                $totalamount = 0.00;
 
-            echo "Subtotal: $".number_format($totalamount, 2)."<br />";
+                $totalamount = $tireqty * TIREPRICE
+                            + $oilqty * OILPRICE
+                            + $sparkqty * SPARKPRICE;
 
-            $taxrate = 0.10; // local sales tax is 10%
-            $totalamount = $totalamount * (1 + $taxrate);
-            echo "Total including tax: $".number_format($totalamount, 2)."</p>";
+                echo "Subtotal: $".number_format($totalamount, 2)."<br />";
+
+                $taxrate = 0.10; // local sales tax is 10%
+                $totalamount = $totalamount * (1 + $taxrate);
+                echo "Total including tax: $".number_format($totalamount, 2)."</p>";
+
+                echo '<p>Your order is as follow: </p>';
+                if ($tireqty > 0)
+                    echo htmlspecialchars($tireqty).' tires<br />';
+                if ($oilqty > 0)
+                    echo htmlspecialchars($oilqty).' bottles of oil<br />';
+                if ($sparkqty > 0)
+                    echo htmlspecialchars($sparkqty).' spark plugs<br />';
+
+                echo '<p>Order processed at ';
+                echo date("H:i, jS F Y");
+                echo "</p>";
+            }
+
+            switch ($find){
+                case "a":
+                    echo "<p>Regular customer.</p>";
+                    break;
+                case "b":
+                    echo "<p>ReCustomer referred by TV advert.</p>";
+                    break;
+                case "c":
+                    echo "<p>Customer referred by phone directory.</p>";
+                    break;
+                case "d":
+                    echo "<p>Customer referred by word of mouth.</p>";
+                    break;
+            }
             
             # Testing the gettype() function
-            echo "<p>Testing getttype() and settype()</p>";
-            $a = 56;
-            echo "$a is ".gettype($a).'<br />';
-            settype($a, 'float');
-            echo "$a is ".gettype($a).'<br />';
+            // echo "<p>Testing getttype() and settype()</p>";
+            // $a = 56;
+            // echo "$a is ".gettype($a).'<br />';
+            // settype($a, 'float');
+            // echo "$a is ".gettype($a).'<br />';
 
             # For testing variable status
-            echo 'isset($tireqty): '.isset($tireqty).'<br />';
-            echo 'isset($nothere): '.isset($nothere).'<br />';
-            echo 'empty($tireqty): '.empty($tireqty).'<br />';
-            echo 'empty($nothere): '.empty($nothere).'<br />';
+            // echo 'isset($tireqty): '.isset($tireqty).'<br />';
+            // echo 'isset($nothere): '.isset($nothere).'<br />';
+            // echo 'empty($tireqty): '.empty($tireqty).'<br />';
+            // echo 'empty($nothere): '.empty($nothere).'<br />';
         ?>
     </body>
 </html>
