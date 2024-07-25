@@ -31,11 +31,14 @@
             echo htmlspecialchars($sparkqty).' spark plugs<br />';
 
             $totalqty = 0;
+            $totalqty = $tireqty + $oilqty + $sparkqty;
+            echo "<p>Items ordered: ".$totalqty."<br />";
             $totalamount = $totalqty;
 
             # To use a constant we don't need to use $ as with variables. 
             // echo TIREPRICE;
             // echo phpinfo(); # methods, functions and more useful stuff of PHP
+            
         ?>
     </body>
 </html>
