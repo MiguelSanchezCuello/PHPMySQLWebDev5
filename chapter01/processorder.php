@@ -55,6 +55,12 @@
             echo "$a is ".gettype($a).'<br />';
             settype($a, 'float');
             echo "$a is ".gettype($a).'<br />';
+
+            # For testing variable status
+            echo 'isset($tireqty): '.isset($tireqty).'<br />';
+            echo 'isset($nothere): '.isset($nothere).'<br />';
+            echo 'empty($tireqty): '.empty($tireqty).'<br />';
+            echo 'empty($nothere): '.empty($nothere).'<br />';
         ?>
     </body>
 </html>
