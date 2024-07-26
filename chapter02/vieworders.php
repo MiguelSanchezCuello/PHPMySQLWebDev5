@@ -28,7 +28,15 @@
           }
 
           flock($fp, LOCK_UN); // Release read lock
-          fclose($fp);
+
+          # using ftell to get the position in bytes of the pointer within
+          # the file, and using rewind() to move the position to the start
+          echo 'Final position of the file pointer is '.(ftell($fp));
+          echo '<br />';
+          rewind($fp);
+          echo 'After rewind, the position is '.(ftell($fp));
+
+          fclose($fp); # to close the file.
         ?>
     </body>
 </html>

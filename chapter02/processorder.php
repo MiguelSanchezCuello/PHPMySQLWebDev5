@@ -72,6 +72,7 @@
             // php script calling the function to write.
             @$fp = fopen("orders.txt", 'ab');
             
+            flock($fp, LOCK_EX);
 
             if (!$fp) {
                 echo "<p><strong> Your order could not be processed at this time.
@@ -79,7 +80,6 @@
                 exit;
             }
 
-            flock($fp, LOCK_EX);
             fwrite($fp, $outputstring, strlen($outputstring));
             flock($fp, LOCK_UN);
             fclose($fp);
