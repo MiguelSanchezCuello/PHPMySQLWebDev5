@@ -55,4 +55,32 @@
         echo '|<br />';
     }
     echo "The code is a lot simpler and provides us with the same result<br />";
+
+    $productos = array(
+        array(
+            'Code' => 'TIR',
+            'Description' => 'Tires',
+            'Price' => 100
+        ),
+        array(
+            'Code' => 'OIL',
+            'Description' => 'Oil',
+            'Price' => 10
+        ),
+        array(
+            'Code' => 'SPK',
+            'Description' => 'Spark Plugs',
+            'Price' => 4
+        )
+    );
+
+    echo "<br />Displaying the productos arrays which now has defined
+         values as keys<br />";
+         
+    for ($row = 0; $row < 3; $row++){
+        echo '|'.$productos[$row]['Code']
+            .'|'.$productos[$row]['Description']
+            .'|'.$productos[$row]['Price'].'|<br />';
+    }
+
 ?>
