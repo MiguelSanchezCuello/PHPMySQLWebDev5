@@ -26,6 +26,14 @@
                             echo $pictures[$i];
                             echo "\"/></td>";
                         }
+
+                        # Just testing the array_reverse() function.
+                        // $numbers = range(1,10);
+                        // $numbers = array_reverse($numbers);
+
+                        // foreach ($numbers as $number){
+                        //     echo "<p>$number<br /></p>"; 
+                        // }
                     ?>
                 </tr>
             </table>
